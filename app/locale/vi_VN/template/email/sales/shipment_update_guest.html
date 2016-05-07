@@ -1,0 +1,52 @@
+<!--@subject {{var order.getStoreGroupName()}}: Shipment # {{var shipment.increment_id}} update @-->
+<style type="text/css">body,td { color:#2f2f2f; font:12px/1.35em Verdana, Arial, Helvetica, sans-serif; }</style>
+
+<body style="background:#ECECEC; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#ECECEC;font:12px/1.35em Arial, Helvetica, sans-serif;margin:0; padding:0;">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+		<td align="center" valign="top" style="padding:20px 0 20px 0;">
+        <!-- [ header starts here] -->
+		<table cellspacing="0" cellpadding="15" border="0" width="650" bgcolor="#FFFFFF" style="border:1px solid #E6E7E9;">
+			<tr>
+				<td valign="top" style="padding:20px 15px;"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.png" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="" border="0"/></a></td>
+			</tr>
+        <!-- [ middle starts here] -->
+       
+			<tr>
+				<td valign="top" style="padding:15px;">
+					<p>
+						<strong>Xin ch&agrave;o  {{var billing.getName()}}</strong>,<br/>
+						&#272;&#417;n h&agrave;ng c&#7911;a b&#7841;n# {{var order.increment_id}} <br/>
+						<strong>{{var order.getStatusLabel()}}</strong>.
+					</p>
+					<p>{{var comment}}</p>
+					<p>
+						N&#7871;u b&#7841;n c&oacute; b&#7845;t c&#7913; c&acirc;u h&#7887;i n&agrave;o, vui l&ograve;ng li&ecirc;n h&#7879; v&#7899;i ch&uacute;ng t&ocirc;i qua   
+						
+						<a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> 
+						
+						ho&#7863;c g&#7885;i cho ch&uacute;ng t&ocirc;i theo s&#7889; 
+						
+						<span class="nobr">{{config path='general/store_information/phone'}}</span>               
+						</p>
+						
+					<p>Tr&acirc;n tr&#7885;ng c&#7843;m &#417;n,<br/>
+					<strong>{{var order.getStoreGroupName()}}</strong></p>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding:15px;">
+					<p style="font-size:12px; color:#000;margin:0 0 15px;">Trân tr?ng c?m on!</p>
+					<p style="font-size:11px; color:#666;margin:0;"><strong>{{var store.getFrontendName()}}</strong><br/>
+						{{config path='general/store_information/address'}}<br/>
+						Tel: {{config path='general/store_information/phone'}}
+					</p>
+				</td>
+			</tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>
+</body>

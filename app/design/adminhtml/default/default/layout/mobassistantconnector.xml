@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<layout>
+    <!--<adminhtml_system_config_edit>
+        <reference name="content">
+            <block type="core/template" name="mobassistantconnector"  template="mobassistantconnector/jsinit.phtml"/>
+        </reference>
+    </adminhtml_system_config_edit>-->
+
+    <adminhtml_user_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mobassistantconnector/adminhtml_user_grid" name="user.grid"/>
+        </block>
+    </adminhtml_user_grid>
+
+    <adminhtml_user_devices>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mobassistantconnector/adminhtml_user_edit_device_grid" name="device.grid"/>
+        </block>
+    </adminhtml_user_devices>
+
+    <adminhtml_user_edit>
+        <update handle="editor"/>
+        <reference name="content">
+            <block type="mobassistantconnector/adminhtml_user_edit" name="user_edit"/>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><file>emagicone/mobassistantconnector/style.css</file></action>
+            <action method="addJs"><file>emagicone/mobassistantconnector/jquery-2.2.2.min.js</file></action>
+            <action method="addJs"><file>emagicone/mobassistantconnector/qrcode.min.js</file></action>
+            <action method="addJs"><file>emagicone/mobassistantconnector/user_edit.js</file></action>
+            <action method="addJs"><file>emagicone/mobassistantconnector/qrcode_app_user_edit.js</file></action>
+        </reference>
+        <reference name="left">
+            <block type="mobassistantconnector/adminhtml_user_edit_tabs" name="user_edit_tabs">
+                <block type="mobassistantconnector/adminhtml_user_edit_tab_main" name="user_edit_tab_main"/>
+                <block type="mobassistantconnector/adminhtml_user_edit_tab_permissions" name="user_edit_tab_permissions"/>
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>user_edit_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>permissions_section</name>
+                    <block>user_edit_tab_permissions</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_user_edit>
+</layout>
