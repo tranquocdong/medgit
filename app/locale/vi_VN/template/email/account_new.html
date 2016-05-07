@@ -1,0 +1,66 @@
+<!--@subject Chào mừng bạn đến với Fazsion @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var customer.email":"Customer Email",
+"htmlescape var=$customer.password":"Customer Password"}
+@-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:12px/1.35em Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#ECECEC; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#ECECEC;font:12px/1.35em Arial, Helvetica, sans-serif;margin:0; padding:0;">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+		<td align="center" valign="top" style="padding:20px 0 20px 0;">
+        <!-- [ header starts here] -->
+				<table cellspacing="0" cellpadding="15" border="0" width="650" bgcolor="#FFFFFF" style="border:1px solid #E6E7E9;">
+					<tr>
+						<td valign="top" style="padding:20px 15px;"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.png" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="" border="0"/></a></td>
+					</tr>
+                <!-- [ middle starts here] -->
+                    <tr>
+                        <td valign="top">
+                            <h1 style="font-size:18px; font-weight:normal; line-height:18px; margin:0 0 17px 0;font-family:'arial';color:#000000;text-transform: capitalize;">Xin chào {{htmlescape var=$customer.name}},</h1>
+                            <p style="font-size:13px; line-height:16px; margin:0;color:#000000;">Chào mừng bạn đến với Fazsion.</p>
+							
+							{{if createcoupon}} 
+							<p style="font-size:13px; line-height:16px; margin:0 0 15px 0;color:#000000;">Bắt đầu mua sắm ngay bây giờ để tham gia chương trình khuyến mại của chúng tôi, <strong style="color: #EC6181;">giảm giá 25%</strong> cho tất cả các mặt hàng. Sử dụng mã giảm giá dành cho bạn: <strong style="color: #EC6181;">fazsion_25</strong> khi tiến hành thanh toán.</p>
+							{{/if}} 
+							
+							<p style="font-size:13px; line-height:16px; margin:0 0 20px 0;color:#000000;font-family:'arial';">Để đăng nhập vui lòng click vào <a href="{{store url="customer/account/login"}}" style="color: #EC6181;font-weight: bold;text-decoration: none;">Login</a> hoặc <a href="{{store url="customer/account/"}}" style="color: #EC6181;font-weight: bold;text-decoration: none;">Tài khoản của tôi</a> ở góc trên bên phải của trang web, sau đó nhập vào địa chỉ e-mail và mật khẩu của bạn.</p>
+                            <p style="font-size:14px; line-height:20px; margin:0; padding: 25px;margin: 0 0 45px; background:#EC6181;color:#fff;font-family:arial;font-weight: normal;border-radius: 3px 3px 3px 3px;">
+                                Thông tin tài khoản:<br/>
+                                <span>E-mail</span>: {{var customer.email}}<br/>
+                                <span>Mật khẩu</span>: {{htmlescape var=$customer.password}}
+							</p>
+                            <p style="font-size:14px; line-height:14px; margin: 0 0 24px 0;font-weight:bold;font-family:arial;color:#000000;"> Sau khi đăng nhập bạn có thể:</p>
+                            <ul style="font-size:13px; line-height:20px; margin:0 0 24px 0; padding:0;font-family:arial;color:#000000;">
+                                <li style="list-style:none inside; padding:0px;margin:0px;font-family:arial;color:#000000;font-size:13px;">&ndash; Thực hiện mua hàng và thanh toán nhanh hơn</li>
+                                <li style="list-style:none inside; padding:0px;margin:0px;font-family:arial;color:#000000;font-size:13px;">&ndash; Kiểm tra trạng thái của đơn đặt hàng</li>
+                                <li style="list-style:none inside; padding:0px;margin:0px;font-family:arial;color:#000000;font-size:13px;">&ndash; Xem các đơn hàng đã đặt trước đó</li>
+                                <li style="list-style:none inside; padding:0px;margin:0px;font-family:arial;color:#000000;font-size:13px;">&ndash; Thay đổi thông tin tài khoản của bạn</li>
+                                <li style="list-style:none inside; padding:0px;margin:0px;font-family:arial;color:#000000;font-size:13px;">&ndash; Mua h&agrave;ng cho b&#7841;n b&egrave; v&agrave; ng&#432;&#7901;i th&acirc;n (Chuy&#7875;n &#273;&#7871;n &#273;&#7883;a ch&#7881; kh&aacute;c khi mua h&agrave;ng)</li>
+                            </ul>
+                            <p style="font-size:13px; line-height:16px; margin:0;font-family:arial;color:#000000;margin: 0 0 40px;">Nếu bạn có bất kỳ câu hỏi nào về tài khoản của bạn hoặc bất kỳ vấn đề khác, xin vui lòng liên hệ với chúng tôi tại <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#000;font-weight: bold;">{{config path='trans_email/ident_support/email'}}</a> hoặc gọi cho chúng tôi theo số {{config path='general/store_information/phone'}}.</p>
+                        </td>
+                    </tr>
+					<tr>
+						<td style="padding:15px;">
+							<p style="font-size:12px; color:#000;margin:0 0 15px;">Trân trọng cảm ơn!</p>
+							<p style="font-size:11px; color:#666;margin:0;"><strong>{{var store.getFrontendName()}}</strong><br/>
+								{{config path='general/store_information/address'}}<br/>
+								Tel: {{config path='general/store_information/phone'}}
+							</p>
+						</td>
+					</tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>

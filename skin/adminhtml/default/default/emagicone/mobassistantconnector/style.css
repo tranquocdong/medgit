@@ -1,0 +1,33 @@
+#mobassistantconnector_qr_code_container {
+    position: relative;
+}
+
+#mobassistantconnector_qrcode_changed {
+    position: absolute;
+    top: 47%;
+    width: 300px;
+    color: red;
+    text-align: center;
+    display: none;
+}
+
+#mobassistantconnector_qr_code_link_container {
+    display: flex;
+}
+
+#mobassistantconnector_div_qr_code_link_hash {
+    width: 100%;
+}
+
+#mobassistantconnector_qr_code_link_hash {
+    width: 450px;
+}
+
+#mobassistantconnector_qr_code_link_btn_regenerate {
+    margin-left: 14px;
+}
+
+#mobassistantconnector_qr_code_link_save_data {
+    display: none;
+    color: red;
+}

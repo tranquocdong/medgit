@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Prashant_RemoveCustomerAccountLinks>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Prashant_RemoveCustomerAccountLinks>
+    </modules>
+</config>

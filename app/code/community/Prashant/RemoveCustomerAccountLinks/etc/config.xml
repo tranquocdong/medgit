@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     Prashant_RemoveCustomerAccountLinks
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software Licence 3.0 (OSL-3.0)
+ * @author      Prashant Kumar
+ */
+-->
+<config>
+    <modules>
+        <Prashant_RemoveCustomerAccountLinks>
+            <version>2.0.0.2</version>
+        </Prashant_RemoveCustomerAccountLinks>
+    </modules>
+    <global>
+        <blocks>
+            <customer>
+                <rewrite>
+                    <account_navigation>Prashant_RemoveCustomerAccountLinks_Block_Navigation</account_navigation>
+                </rewrite>
+            </customer>
+        </blocks>
+        <helpers>
+            <prashant_removecustomeraccountlinks>
+                <class>Prashant_RemoveCustomerAccountLinks_Helper</class>
+            </prashant_removecustomeraccountlinks>
+        </helpers>
+        <models>
+            <prashant_removecustomeraccountlinks>
+                <class>Prashant_RemoveCustomerAccountLinks_Model</class>
+            </prashant_removecustomeraccountlinks>
+        </models>
+        <resources>
+            <prashant_removecustomeraccountlinks_setup>
+                <setup>
+                    <module>Prashant_RemoveCustomerAccountLinks</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </prashant_removecustomeraccountlinks_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Prashant_RemoveCustomerAccountLinks>
+                    <files>
+                        <default>Prashant_RemoveCustomerAccountLinks.csv</default>
+                    </files>
+                </Prashant_RemoveCustomerAccountLinks>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <customer>
+            <prashant_removecustomeraccountlinks>
+                <items/>
+            </prashant_removecustomeraccountlinks>
+        </customer>
+    </default>
+</config>

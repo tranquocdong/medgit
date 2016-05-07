@@ -1,0 +1,9 @@
+<?xml version = "1.0"?>
+<config>
+    <modules>
+        <Emagicone_Mobassistantconnector>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Emagicone_Mobassistantconnector>
+    </modules>
+</config>
