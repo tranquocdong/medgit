@@ -1,0 +1,48 @@
+<?php
+ /**
+ * GoMage LightCheckout Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2010-2013 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
+ * @terms of use http://www.gomage.com/terms-of-use
+ * @version      Release: 5.0
+ * @since        Class available since Release 1.0
+ */
+?>
+<?php if ($this->getTotals()): ?>
+<tfoot>
+	<?php if(Mage::helper('gomage_checkout')->getConfigData('general/allow_remove')>0):?>
+    <?php $_colspan = $this->helper('tax')->displayCartBothPrices() ? 6 : 4; ?>
+    <?php else:?>
+    <?php $_colspan = $this->helper('tax')->displayCartBothPrices() ? 5 : 3; ?>
+    <?php endif;?>
+    <?php 
+        if (Mage::helper('gomage_checkout')->getConfigData('gift_wrapping/enable')>0){
+            $_colspan++;
+        }
+        if (Mage::helper('gomage_checkout')->getConfigData('address_fields/thumbnails')>0){
+            $_colspan++;
+        }
+    ?>
+    <?php echo $this->renderTotals(null, $_colspan); ?>
+    <?php echo $this->renderTotals('footer', $_colspan); ?>
+    <?php if ($this->needDisplayBaseGrandtotal()):?>
+    <tr>
+        <td class="a-right" colspan="<?php echo $_colspan; ?>">
+            <small><?php echo $this->helper('sales')->__('Your credit card will be charged for') ?></small>
+        </td>
+        <td class="a-right">
+            <small><?php echo $this->displayBaseGrandtotal() ?></small>
+        </td>
+    </tr>
+    <?php endif?>
+</tfoot>
+<?php endif; ?>
+<script type="text/javascript">
+//<![CDATA[
+    var quoteBaseGrandTotal = <?php echo Mage::getSingleton('checkout/session')->getQuote()->getBaseGrandTotal(); ?>;
+    var checkQuoteBaseGrandTotal = <?php echo Mage::getSingleton('checkout/session')->getQuote()->getBaseGrandTotal(); ?>;    
+//]]>
+</script>

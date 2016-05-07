@@ -1,0 +1,142 @@
+<?php
+/**
+ *    This file is part of Mobile Assistant Connector.
+ *
+ *   Mobile Assistant Connector is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   Mobile Assistant Connector is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with Mobile Assistant Connector.  If not, see <http://www.gnu.org/licenses/>.
+ */
+?>
+<div class="mobassistantconnector_permissions_mass_checked_class" style="text-align: right">
+    <button id="mobassistantconnector_permissions_btn_mass_checked_1" checked_all="false">Check All</button>
+</div>
+<script>
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function() {
+        var button = $j("#mobassistantconnector_permissions_btn_mass_checked_1");
+
+        setPermissionsButtonName(isPermissionsCheckedAll());
+
+        button.bind("click",function(e) {
+            var value = true;
+
+            if (button.attr('checked_all') == "true") {
+                value = false;
+            }
+
+            $j("[name='allowed_actions[]']").each(function() {
+                $j(this).prop('checked', value);
+            });
+
+            setPermissionsButtonName(value);
+            e.stopImmediatePropagation();
+
+            return false;
+        });
+
+        $j("[name='allowed_actions[]']").click(function() {
+            processClick($j(this));
+        });
+
+        function isPermissionsCheckedAll() {
+            var checkedAll = true;
+
+            $j("[name='allowed_actions[]']").each(function() {
+                if (!$j(this).prop('checked')) {
+                    checkedAll = false;
+                }
+            });
+
+            return checkedAll;
+        }
+
+        function setPermissionsButtonName(isPermissionsCheckedAll) {
+            if (isPermissionsCheckedAll) {
+                button.html('Uncheck All');
+                button.attr('checked_all', "true");
+            } else {
+                button.html('Check All');
+                button.attr('checked_all', "false");
+            }
+        }
+
+        function processClick(element) {
+            var value_selected                   = element.val();
+            var id                               = element.attr('id');
+            var prefix                           = id.substring(0, id.lastIndexOf(value_selected));
+            var action_products_list             = 'products_list';
+            var action_product_details           = 'product_details';
+            var action_customers_list            = 'customers_list';
+            var action_customer_details          = 'customer_details';
+            var action_abandoned_carts_list      = 'abandoned_carts_list';
+            var action_abandoned_cart_details    = 'abandoned_cart_details';
+            var action_orders_list               = 'orders_list';
+            var action_order_details             = 'order_details';
+            var action_order_details_pdf         = 'order_details_pdf';
+            var action_order_invoice             = 'order_invoice';
+            var action_order_ship                = 'order_ship';
+            var action_order_cancel              = 'order_cancel';
+            var action_order_hold                = 'order_hold';
+            var action_order_unhold              = 'order_unhold';
+            var action_order_delete_track_number = 'order_delete_track_number';
+
+            if (element.is(':checked')) {
+                if (value_selected == action_product_details) {
+                    $j("#" + prefix + action_products_list).prop("checked", true);
+                } else if (value_selected == action_customer_details) {
+                    $j("#" + prefix + action_customers_list).prop("checked", true);
+                } else if (value_selected == action_abandoned_cart_details) {
+                    $j("#" + prefix + action_abandoned_carts_list).prop("checked", true);
+                } else if (value_selected == action_order_details) {
+                    $j("#" + prefix + action_orders_list).prop("checked", true);
+                } else if (
+                    value_selected == action_order_details_pdf ||
+                        value_selected == action_order_invoice ||
+                        value_selected == action_order_ship ||
+                        value_selected == action_order_cancel ||
+                        value_selected == action_order_hold ||
+                        value_selected == action_order_unhold ||
+                        value_selected == action_order_delete_track_number
+                    ) {
+                    $j("#" + prefix + action_orders_list).prop("checked", true);
+                    $j("#" + prefix + action_order_details).prop("checked", true);
+                }
+            } else {
+                if (value_selected == action_products_list) {
+                    $j("#" + prefix + action_product_details).prop("checked", false);
+                } else if (value_selected == action_customers_list) {
+                    $j("#" + prefix + action_customer_details).prop("checked", false);
+                } else if (value_selected == action_abandoned_carts_list) {
+                    $j("#" + prefix + action_abandoned_cart_details).prop("checked", false);
+                } else if (value_selected == action_order_details) {
+                    $j("#" + prefix + action_order_details_pdf).prop("checked", false);
+                    $j("#" + prefix + action_order_invoice).prop("checked", false);
+                    $j("#" + prefix + action_order_ship).prop("checked", false);
+                    $j("#" + prefix + action_order_cancel).prop("checked", false);
+                    $j("#" + prefix + action_order_hold).prop("checked", false);
+                    $j("#" + prefix + action_order_unhold).prop("checked", false);
+                    $j("#" + prefix + action_order_delete_track_number).prop("checked", false);
+                } else if (value_selected == action_orders_list) {
+                    $j("#" + prefix + action_order_details).prop("checked", false);
+                    $j("#" + prefix + action_order_details_pdf).prop("checked", false);
+                    $j("#" + prefix + action_order_invoice).prop("checked", false);
+                    $j("#" + prefix + action_order_ship).prop("checked", false);
+                    $j("#" + prefix + action_order_cancel).prop("checked", false);
+                    $j("#" + prefix + action_order_hold).prop("checked", false);
+                    $j("#" + prefix + action_order_unhold).prop("checked", false);
+                    $j("#" + prefix + action_order_delete_track_number).prop("checked", false);
+                }
+            }
+        }
+    });
+</script>

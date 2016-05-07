@@ -1,0 +1,50 @@
+﻿<!--@subject Take a look at {{var customer.name}}'s wishlist @-->
+
+<style type="text/css">
+    body,td { color:#2f2f2f; font:12px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+</style>
+<body style="background:#ECECEC; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#ECECEC;font:12px/1.35em Arial, Helvetica, sans-serif;margin:0; padding:0;">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+		<tr>
+			<td align="center" valign="top" style="padding:20px 0 20px 0;">
+			<!-- [ header starts here] -->
+				<table cellspacing="0" cellpadding="15" border="0" width="650" bgcolor="#FFFFFF" style="border:1px solid #E6E7E9;">
+					<tr>
+						<td valign="top" style="padding:20px 15px;"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.png" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="" border="0"/></a></td>
+					</tr>
+
+            <!-- [ middle starts here] -->
+               
+                    <tr>
+                        <td valign="top">
+                        <p>Xin chào<br/>
+                        Hãy nhìn vào danh sách yêu thích của tôi tại <strong>{{var order.getStoreGroupName()}}</strong>.</p>
+
+                        <p>{{var message}}</p>
+
+                        {{var items}}
+
+                        <br/>
+
+{{depend salable}}<p><strong><a href="{{var addAllLink}}" style="color:#DC6809;">Thêm tất cả danh sách yêu thích vào giỏ hàng</a></strong> |{{/depend}} <strong><a href="{{var viewOnSiteLink}}" style="color:#1E7EC8;">Xem tất cả danh sách yêu thích</a></strong></p>
+
+                        
+                        </td>
+                    </tr>
+					<tr>
+						<td style="padding:15px;">
+							<p style="font-size:12px; color:#000;margin:0 0 15px;">Trân trọng cảm ơn!</p>
+							<p style="font-size:11px; color:#666;margin:0;"><strong>{{var store.getFrontendName()}}</strong><br/>
+								{{config path='general/store_information/address'}}<br/>
+								Tel: {{config path='general/store_information/phone'}}
+							</p>
+						</td>
+					</tr>
+                </table>
+
+            </td>
+        </tr>
+</table>
+</div>
+</body>

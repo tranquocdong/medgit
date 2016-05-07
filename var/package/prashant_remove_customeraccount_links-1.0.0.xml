@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>prashant_remove_customeraccount_links</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Remove customer myaccount links in Magento. </summary>
+    <description>Removes customer account links in Magento from backend easily.</description>
+    <notes>First Release</notes>
+    <authors><author><name>Prashant Kumar</name><user>prashantkr</user><email>vicky.bgp@gmail.com</email></author></authors>
+    <date>2016-03-29</date>
+    <time>10:55:05</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Prashant_RemoveCustomerAccountLinks.xml" hash="bb37b8a15253d0c46550cbe28b8e9f82"/></dir></target><target name="magecommunity"><dir name="Prashant"><dir name="RemoveCustomerAccountLinks"><dir name="Block"><file name="Navigation.php" hash="e0ee12818ab5e552ff3523b46193d34f"/></dir><dir name="Helper"><file name="Data.php" hash="bfed3071eb905a0a9cf4f8f2f5db9a59"/></dir><dir name="Model"><dir name="System"><dir name="Source"><file name="Link.php" hash="873f099d3118221cb4f449f615e9074d"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="f17e062d808cc6b7858723e71f9ed864"/><file name="system.xml" hash="7ae909b3b335598e5c0b3f322867458a"/></dir><dir name="sql"><dir name="prashant_removecustomeraccountlinks_setup"><file name="mysql4-install-2.0.0.2.php" hash="919ba2a19402155295cba20feab1b62e"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.1</min><max>6.0.0</max></php></required></dependencies>
+</package>

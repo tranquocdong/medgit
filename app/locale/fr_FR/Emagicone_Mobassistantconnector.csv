@@ -1,0 +1,42 @@
+"Mobile Bridge","Mobile Bridge"
+"General Settings","Configuration Générale"
+"Access Settings","Réglages d'Accès"
+"Login","Identifiant"
+"Password","Mot de passe"
+"Enabled","Activé"
+"URL in Your mobile application should looks like:","Dans Votre application mobile l'URL devrait être:"
+"Login for accessing Mobile Assistant Connector from Your mobile application.","Identifiant pour accéder à Mobile Assistant Connecteur depuis Votre application mobile"
+"Password for accessing Mobile Assistant Connector from Your mobile application. Default password is '1'. Please change it to your own one.","Mot de passe pour accéder à Mobile Assistant Connecteur depuis Votre application mobile. Le mot de passe par défaut est "1". Créez un nouveau mot de passe."
+"Le mot de passe par défaut est "1". Pour des raisons de sécurité, veuillez changer le mot de passe."
+"Login field cannot be empty.  Please specify Login.","Le champ Identifiant ne peut pas être vide. Veuillez indiquer votre Identifiant."
+"Password field cannot be empty.  Please specify password.","Le champ mot de passe ne peut pas être vide. Veuillez indiquer votre mot de passe."
+"Can\'t get configuration value","Impossible d'obtenir le valeur de configuration"
+"Registration ID cannot be empty","ID d'enregistrement ne peut pas être vide"
+"An error occurred!","Une erreur est survenue!"
+"Cannot create an invoice without products!","Impossible de créer une facture sans les produits"
+"Cannot create an invoice!","Impossible de créer une facture!"
+"Empty tracking number!","Numéro de repérage vide!"
+"Current order cannot be shipped!","Cette commande ne peut pas être expédiée"
+"Current order cannot be canceled!","Cette commande ne peut pas être annulée!"
+"Current order cannot be holded!","Cette commande ne peut pas être en attente!"
+"Current order cannot be unholded!","Cette commande ne peut pas être reprise"
+"Current tracking number wasn\'t found","Numéro de repérage ne peut pas être retrouvée"
+"Current order doesn\'t have shipments!","Cette commande n'a pas d'expéditions!"
+"No order was found!","Aucune commande n'a été trouvée!"
+"Action is not set!","L'action n'est pas paramétrée"
+"Order id cannot be empty!","ID de la commande ne peut pas être vide"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

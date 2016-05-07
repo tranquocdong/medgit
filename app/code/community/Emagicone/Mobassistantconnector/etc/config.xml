@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<config>
+    <default>
+        <mobassistantconnectorinfosec>
+            <emogeneral>
+                <status>0</status>
+            </emogeneral>
+            <emoaccess>
+                <login>1</login>
+                <password>c4ca4238a0b923820dcc509a6f75849b</password>
+            </emoaccess>
+        </mobassistantconnectorinfosec>
+    </default>
+
+    <modules>
+        <Emagicone_Mobassistantconnector>
+            <version>1.4.1</version>
+        </Emagicone_Mobassistantconnector>
+    </modules>
+
+    <frontend>
+        <routers>
+            <mobassistantconnector>
+                <use>standard</use>
+                <args>
+                    <module>Emagicone_Mobassistantconnector</module>
+                    <frontName>mobassistantconnector</frontName>
+                </args>
+            </mobassistantconnector>
+        </routers>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Emagicone_Mobassistantconnector.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+    </frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <!--<mobassistantconnectoradmin before="Mage_Adminhtml">Emagicone_Mobassistantconnector_Adminhtml</mobassistantconnectoradmin>-->
+                        <mobassistantconnector before="Mage_Adminhtml">Emagicone_Mobassistantconnector_Adminhtml</mobassistantconnector>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <global>
+        <blocks>
+            <mobassistantconnector>
+                <class>Emagicone_Mobassistantconnector_Block</class>
+            </mobassistantconnector>
+        </blocks>
+
+        <helpers>
+            <mobassistantconnector>
+                <class>Emagicone_Mobassistantconnector_Helper</class>
+            </mobassistantconnector>
+        </helpers>
+
+        <models>
+            <sales>
+                <rewrite>
+                    <order>Emagicone_Mobassistantconnector_Model_Order</order>
+                </rewrite>
+            </sales>
+            <emagiconemobassistantconnector>
+                <class>Emagicone_Mobassistantconnector_Model</class>
+            </emagiconemobassistantconnector>
+            <emagicone_mobassistantconnector>
+                <class>Emagicone_Mobassistantconnector_Model</class>
+                <resourceModel>emagicone_mobassistantconnector_resource</resourceModel>
+            </emagicone_mobassistantconnector>
+            <emagicone_mobassistantconnector_resource>
+                <class>Emagicone_Mobassistantconnector_Model_Resource</class>
+                <entities>
+                    <sessions>
+                        <table>emagicone_mobassistantconnector_sessions</table>
+                    </sessions>
+                    <failed>
+                        <table>emagicone_mobassistantconnector_failed_login</table>
+                    </failed>
+                    <user>
+                        <table>emagicone_mobassistantconnector_users</table>
+                    </user>
+                    <push>
+                        <table>emagicone_mobassistantconnector_push_notifications</table>
+                    </push>
+                    <device>
+                        <table>emagicone_mobassistantconnector_devices</table>
+                    </device>
+                    <account>
+                        <table>emagicone_mobassistantconnector_accounts</table>
+                    </account>
+                </entities>
+            </emagicone_mobassistantconnector_resource>
+        </models>
+
+        <resources>
+            <em1_mob_setup>
+                <setup>
+                    <module>Emagicone_Mobassistantconnector</module>
+                </setup>
+            </em1_mob_setup>
+         </resources>
+
+        <events>
+            <sales_order_save_after>
+                <observers>
+                    <emagicone_mobassistantconnector_order_change>
+                        <type>singleton</type>
+                        <class>Emagicone_Mobassistantconnector_Model_Observer</class>
+                        <method>checkOrder</method>
+                    </emagicone_mobassistantconnector_order_change>
+                </observers>
+            </sales_order_save_after>
+            <customer_register_success>
+                <observers>
+                    <emagicone_mobassistantconnector_customer_register_success>
+                        <type>model</type>
+                        <class>Emagicone_Mobassistantconnector_Model_Observer</class>
+                        <method>customerRegisterSuccess</method>
+                    </emagicone_mobassistantconnector_customer_register_success>
+                </observers>
+            </customer_register_success>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <emagicone_mobassistantconnector_adminhtml_init_system_config>
+                        <type>model</type>
+                        <class>Emagicone_Mobassistantconnector_Helper_TableCheck</class>
+                        <method>check</method>
+                    </emagicone_mobassistantconnector_adminhtml_init_system_config>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
+        </events>
+        <!--<layout>
+            <updates>
+                <emagicone_mobassistantconnector>
+                    <file>emagicone_mobassistantconnector.xml</file>
+                </emagicone_mobassistantconnector>
+            </updates>
+        </layout>-->
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Emagicone_mobassistantconnector.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+
+        <layout>
+            <updates>
+                <mobassistantconnector>
+                    <!--<file>customer.xml</file>-->
+                    <file>mobassistantconnector.xml</file>
+                </mobassistantconnector>
+            </updates>
+        </layout>
+
+        <menu>
+            <mobassistantconnector translate="title" module="mobassistantconnector">
+                <title>Mobile Assistant Connector</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <!--<settings translate="title" module="mobassistantconnector">
+                        <title>Configuration</title>
+                        <action>adminhtml/system_config/edit/section/mobassistantconnectorinfosec</action>
+                        <sort_order>0</sort_order>
+                    </settings>-->
+                    <mobassistantconnector_users translate="title" module="mobassistantconnector">
+                        <title>Users</title>
+                        <action>adminhtml/user</action>
+                        <sort_order>1</sort_order>
+                    </mobassistantconnector_users>
+                </children>
+            </mobassistantconnector>
+        </menu>
+
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mobassistantconnectorinfosec translate="title">
+                                            <title>Mobile Assistant Connector Section</title>
+                                            <sort_order>150</sort_order>
+                                        </mobassistantconnectorinfosec>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <mobassistantconnector translate="title" module="mobassistantconnector">
+                            <title>Mobile Assistant Connector</title>
+                            <sort_order>110</sort_order>
+                            <children>
+                                <settings>
+                                    <title>Settings</title>
+                                    <sort_order>0</sort_order>
+                                </settings>
+                                <mobassistantconnector_users>
+                                    <title>Users</title>
+                                    <sort_order>1</sort_order>
+                                </mobassistantconnector_users>
+                            </children>
+                        </mobassistantconnector>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>
